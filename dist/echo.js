@@ -1,4 +1,4 @@
-/*! echo.js v1.6.0 | (c) 2015 @toddmotto | https://github.com/toddmotto/echo */
+/*! echo.js v1.7.0 | (c) 2015 @toddmotto | https://github.com/toddmotto/echo */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(function() {
@@ -64,7 +64,7 @@
   };
 
   echo.render = function () {
-    var nodes = document.querySelectorAll('img[data-echo], [data-echo-background]');
+    var nodes = document.querySelectorAll('img[data-echo], iframe[data-echo], [data-echo-background]');
     var length = nodes.length;
     var src, elem;
     var view = {
@@ -90,6 +90,7 @@
 
         if (!unload) {
           elem.removeAttribute('data-echo');
+          elem.removeAttribute('data-echo-background');
         }
 
         callback(elem, 'load');
